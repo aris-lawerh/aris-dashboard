@@ -1,0 +1,1 @@
+web: gunicorn aris_inventory.wsgi 
