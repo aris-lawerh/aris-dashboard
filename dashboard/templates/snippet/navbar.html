@@ -1,0 +1,49 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-info">
+        
+    <a class="navbar-brand bg-info" href="{% url 'index' %}">
+        <img src='{% static "dashboard/images/aris-logo2.png" %}' width="185" height="30" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item bg-aris">
+                    <a class="nav-link bg-aris text-white" href="{% url 'profile' %}">
+                        <img class="rounded-circle" src="{{ user.profile.profile_picture.url}}" height="50" width="50" >
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-link bg-aris text-white active">
+                    <a class='text-white' href="{% url 'profile' %}">
+                        {{ user.first_name }} {{ user.last_name }}<br>
+                    </a>
+                    {% if user.is_superuser %}
+                        Global Administrator
+                    {% else %}
+                        Staff
+                    {% endif %}
+                </li>
+                
+            </ul>
+            {% else %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'register' %}">Register <span
+                        class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+                </li>
+            </ul>
+
+
+            {% endif %}
+        </div>
+    </div>
+</nav>

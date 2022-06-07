@@ -1,0 +1,25 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Device Page {% endblock %}
+
+{% block content %}
+
+<div class="row my-4">
+    <div class="col-md-4">
+        <div class="border bg-white p-3">
+            <h4>Add Devices</h4>
+            <hr>
+            <form method="POST">
+                <div class="form-group ">
+                    {% csrf_token %}
+                    {{ form|crispy}}
+                    <input class="btn btn-success" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

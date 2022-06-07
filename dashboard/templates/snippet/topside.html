@@ -1,0 +1,45 @@
+<!--Topside-->
+<div class="container">
+    <div class="row mt-4 mr-8">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-info text-black" align='center'>
+                    <h3>Information</h3>
+                </div>
+                <div class="card-body">
+                    <marquee behavior="" direction="ltr">
+                        <h3 class="my-4">This is the Information</h3>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-info text-white" align='center'>
+                    <h3>Statistics</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="text-decoration-none text-dark" href="{% url 'staff' %}">
+                                <div class="card my-card shadow text-center p-3">
+                                    <h4>Staff <i class="fas fa-users"></i></h4>
+                                    <h3>{{ staff.count }}</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="text-decoration-none text-dark" href="{% url 'devices' %}">
+                                <div class="card my-card shadow text-center p-3" align='right'>
+                                    <h4>Devices <i class="fas fa-box"></i></h4>
+                                    <h3> {{ items.count }}</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Topside-->

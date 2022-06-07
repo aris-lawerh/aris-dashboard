@@ -1,0 +1,29 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Item Details Update {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 offset-md-3">
+            <div class="border bg-white p-3">
+                <h3>Edit Item</h4>
+                <hr>
+                <form method="POST">
+                    <div class="form-group ">
+                        {% csrf_token %}
+                        {{ form|crispy}}
+                        <input class="btn btn-danger" type="submit" value="Confirm">
+                        <a class='btn btn-secondary' href="{% url 'devices' %}"> Cancel</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

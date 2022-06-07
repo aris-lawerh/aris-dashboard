@@ -1,0 +1,33 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<html>
+<title> {% block title %} Login Page {% endblock %} </title>
+
+{% include 'snippet/head.html' %}
+<body class='content bg-aris'>
+<div class="row my-4">
+    <div class="col-md-6 offset-md-3">
+        <div class="border p-3 bg-white bg-aris">
+            
+            <h4 float='right'>
+                <img align='right'src='{% static "dashboard/images/aris-logo.png" %}'>
+                Sign In
+            </h4>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-success" type="submit" value="Sign In">
+                <a class="btn btn-success Google" href="/accounts/google/login" > Sign In with Google
+                </a>
+                <p>Don't have an ARIS Email assigned yet? Register an account <a href='{% url "register" %}'>Here</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

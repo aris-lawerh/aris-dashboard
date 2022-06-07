@@ -1,0 +1,23 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated and user.is_staff and user.is_superuser %}
+
+{% include 'snippet/topside.html' %}
+
+{% else %}
+
+{% endif%}
+
+<div class='text-center'>
+    {% include 'snippet/messages.html' %}
+    <form method='POST' class='form-group'>
+    {% csrf_token %}
+    <input class="btn btn-info btn-lg mt-4" type='submit' value='Request A Device'>
+    </form>
+</div>
+
+{% endblock %}
