@@ -1,1 +1,1 @@
-web: gunicorn aris_inventory.wsgi 
+web: gunicorn aris_inventory.wsgi
